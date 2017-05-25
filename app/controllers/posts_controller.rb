@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
+  before_action :authenticate
+
   def index
     @posts = Post.all.page(page_number)
 
-    headers['Custom-Header'] = 'Some Value'
-
-    respond_with @posts, each_serializer: PostSerializer
+    respond_with @posts
   end
 
   def show
