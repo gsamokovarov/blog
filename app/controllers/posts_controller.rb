@@ -2,33 +2,21 @@ class PostsController < ApplicationController
   before_action :authenticate
 
   def index
-    @posts = Post.all.page(page_number)
+    @posts = Current.user.posts.page(page_number)
 
     respond_with @posts
   end
 
   def show
-    @post = Post.find(params[:id])
-
-    respond_with @post
-  end
-
-  def new
-    @post = Post.new
-
-    respond_with @post
-  end
-
-  def edit
-    @post = find_post
+    @post = Current.user.posts.find(params[:id])
 
     respond_with @post
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = Current.user.posts.create!(post_params)
 
-    respond_with @post
+    respond_with @post, location: nil
   end
 
   def update
@@ -47,10 +35,10 @@ class PostsController < ApplicationController
   private
 
   def find_post
-    Post.find(params[:id])
+    Current.user.posts.find(params[:id])
   end
 
   def post_params
-    params.require(:post).permit(:title, :description, :active)
+    params.permit(:title, :description, :active)
   end
 end

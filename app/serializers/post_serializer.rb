@@ -1,9 +1,5 @@
-class PostSerializer < ActiveModel::Serializer
-  attributes :id, :title, :text, :active
-
-  def text
-    object.description
-  end
+class PostSerializer < ApplicationSerializer
+  attributes :id, :description, :active
 
   def active
     !!object.activated_at

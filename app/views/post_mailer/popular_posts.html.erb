@@ -1,0 +1,6 @@
+<h2>Popular Posts</h2>
+
+<% @posts.each do |post| %>
+  <h2><%= post.title %></h2>
+  <p><%= post.description %></p>
+<% end %>

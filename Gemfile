@@ -35,6 +35,9 @@ gem 'kaminari'
 gem 'responders'
 gem 'jwt'
 
+gem 'delayed_job', github: 'collectiveidea/delayed_job',
+                   branch: 'update-testing-dependency-versions'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

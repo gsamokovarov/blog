@@ -1,4 +1,4 @@
-class AlternativePostSerializer < ActiveModel::Serializer
+class AlternativePostSerializer < ApplicationSerializer
   attributes :id, :title, :description
 
   def id

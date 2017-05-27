@@ -23,6 +23,6 @@ class AuthenticationMiddleware
   end
 
   def decode_token(token)
-    JWT.decode(token, secret, true, algorithm: alg)
+    JWT.decode(token, secret, true, algorithm: alg).first
   end
 end

@@ -1,8 +1,7 @@
-class ApplicationController < ActionController::Base
+class ApplicationController < ActionController::API
   include Pagination
   include Authentication
+  include Current::Reset
 
-  use AuthenticationMiddleware
-
-  respond_to :html, :json
+  respond_to :json
 end
