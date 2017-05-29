@@ -8,11 +8,11 @@ class Post < ApplicationRecord
 
   class << self
     def active
-      where('activated_at IS NULL OR activated_at < ?', 10.seconds.ago)
+      where('activated_at IS NOT NULL AND activated_at < ?', 2.minutes.ago)
     end
 
-    def popular
-      where(id: Post.ids.sample(2))
+    def popular(n = 2)
+      where(id: Post.ids.sample(n))
     end
   end
 

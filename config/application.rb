@@ -12,5 +12,7 @@ module Blog
     config.load_defaults 5.1
 
     config.api_only = true
+
+    config.time_zone = 'UTC'
   end
 end
