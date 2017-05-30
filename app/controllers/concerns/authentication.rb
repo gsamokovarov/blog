@@ -18,7 +18,7 @@ module Authentication
     token = request.env['blog.token']
 
     if token.nil?
-      render json: {error: :authenticated}, status: :authenticated
+      render json: {error: :unauthenticated}, status: :unauthorized
     else
       Current.user = User.find(token['sub'])
     end
