@@ -4,7 +4,9 @@ AuthenticationMiddleware.secret = begin
   if Rails.env.development? || Rails.env.test?
     envar.presence || 'test1234'
   else
-    abort "You need to specify a SECRET_KEY_BASE environment variable"
+    unless envar.presence
+      abort "You need to specify a SECRET_KEY_BASE environment variable"
+    end
   end
 
   envar
