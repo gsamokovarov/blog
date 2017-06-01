@@ -18,6 +18,7 @@ RSpec.describe PostsController, type: :request do
           id: post.id.to_s,
           type: 'posts',
           attributes: {
+            title: post.title,
             description: post.description,
             active: !!post.activated_at
           },
@@ -40,6 +41,7 @@ RSpec.describe PostsController, type: :request do
           id: post.id.to_s,
           type: 'posts',
           attributes: {
+            title: post.title,
             description: post.description,
             active: !!post.activated_at
           },
@@ -66,6 +68,7 @@ RSpec.describe PostsController, type: :request do
           id: post.id.to_s,
           type: 'posts',
           attributes: {
+            title: post.title,
             description: post.description,
             active: !!post.activated_at
           },

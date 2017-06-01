@@ -1,8 +1,8 @@
 class AuthenticationMiddleware
   TOKEN_EXTRACT_RE = /^Bearer\s+(.+)$/
 
+  cattr_accessor(:secret)
   cattr_accessor(:alg) { 'HS256' }
-  cattr_accessor(:secret) { 'test1234' }
 
   def initialize(app)
     @app = app
